@@ -1,3 +1,3 @@
 export const list = (req, res) => {
-    res.json('Working')
+    res.json('Working now')
 }
