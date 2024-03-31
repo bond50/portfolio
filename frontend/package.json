@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "axios": "^1.6.8",
+    "next": "latest",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typewriter-effect": "^2.21.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
