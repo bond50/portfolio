@@ -33,7 +33,14 @@ const ServicesSection = () => {
             date: 'Wed, 09 Jun 2021 11:20:15',
             title: "Tai Lifestyle Limited",
             description: "Tai Lifestyle Limited is a 100% Kenyan firm covering East and Central Africa. With a focus on high professionalism and responsiveness to clients’ needs, we invest in modern business practices to stay at the cutting edge of our industry."
-        }
+        },
+       {
+    "link": "https://galavuwal.com",
+    "status": 'published',
+    "date": 'Mon, 01 Jan 2024 11:20:15',
+    "title": "Galavuwal Portfolio",
+    "description": "Galavuwal.com is the professional portfolio of Waldguard Galavu, showcasing a collection of my most significant projects and achievements. The site features detailed case studies on software development, highlighting my expertise in MERN stack, Django, and other technologies. This portfolio serves as a reflection of my journey in tech, demonstrating my commitment to delivering impactful solutions and my continuous growth in the field."
+}
 
 
     ];
