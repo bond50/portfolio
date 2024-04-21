@@ -11,10 +11,12 @@ import {Resume} from "./icons/resume";
 import {Code} from "./icons/code";
 
 import {Handshake} from "./icons/handshake";
+import {Documents} from "./icons/documents";
 
 
-const Header = ({open}) => {
-    console.log('Open?', open)
+const Header = ({open, toggleOpen}) => {
+
+    console.log(open)
 
     return (
         <header id="header" className={open ? 'mobile-nav-active' : 'mobile-nav-closed'}>
@@ -45,37 +47,37 @@ const Header = ({open}) => {
 
                 <nav id="navbar" className="nav-menu navbar">
                     <ul>
-                        <li>
+                        <li onClick={toggleOpen}>
                             <Link href="#hero" className='nav-link active'>
                                 <Home/>
                                 <span>Home</span>
                             </Link>
                         </li>
-                        <li>
+                        <li onClick={toggleOpen}>
                             <Link href={"#about"} className='nav-link'>
                                 <About/>
                                 <span>About</span>
                             </Link>
                         </li>
-                        <li>
+                        <li onClick={toggleOpen}>
                             <Link href={"#resume"} className='nav-link '>
                                 <Resume/>
                                 <span>Resume</span>
                             </Link>
                         </li>
-                        <li>
+                        <li onClick={toggleOpen}>
                             <Link href={"#services"} className='nav-link '>
                                 <Code/>
                                 <span>Projects</span>
                             </Link>
                         </li>
-                        {/*<li>*/}
-                        {/*    <Link href={"#documents"} className='nav-link '>*/}
-                        {/*        <Documents/>*/}
-                        {/*        <span>Documents</span>*/}
-                        {/*    </Link>*/}
-                        {/*</li>*/}
-                        <li>
+                        <li onClick={toggleOpen}>
+                            <Link href={"#documents"} className='nav-link '>
+                                <Documents/>
+                                <span>Documents</span>
+                            </Link>
+                        </li>
+                        <li onClick={toggleOpen}>
                             <Link href={"#contact"} className='nav-link '>
                                 <Handshake/>
                                 <span>Contact</span>

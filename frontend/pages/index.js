@@ -27,7 +27,7 @@ const Index = () => {
             )}
 
 
-            <Header open={open}/>
+            <Header open={open} toggleOpen={toggleOpen}/>
             <Hero/>
             <main className='main' id='main'>
                 <About/>
