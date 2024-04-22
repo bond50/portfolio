@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({limit: "200mb", extended: true}));
 //cors
 
 
-const allowedOrigins = ['http://localhost:3000', process.env.DOMAIN];
+const allowedOrigins = ['http://localhost:3001', process.env.DOMAIN];
 
 app.use((req, res, next) => {
     const origin = req.headers.origin;

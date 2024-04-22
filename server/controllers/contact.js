@@ -1,29 +1,39 @@
-import sgMail from "@sendgrid/mail";
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+import nodemailer from 'nodemailer';
+
+// Create the transporter with the appropriate configuration
+let transporter = nodemailer.createTransport({
+    host: process.env.MAIL_HOST,
+    port: process.env.AUTH_PORT,
+    secure: true,
+    auth: {
+        user: process.env.AUTH_USER,
+        pass: process.env.AUTH_PASSWORD
+    },
+    tls: {
+        rejectUnauthorized: true
+    }
+});
 
 
-export const sendMail = (req, res) => {
+
+// Export the sendEMail function to use it in routes
+export const sendEmail = (req, res, next) => {
+
     const {email, name, message, subject} = req.body;
-    let mailList = [process.env.EMAIL_TO];
-    const emailData = {
-        to: mailList,
-        from: process.env.CONTACT_MAIL,
+    let mailOptions = {
+        from: email,
+        to: process.env.EMAIL_TO,
         subject: subject,
-        text: `Email received from contact from \n Sender name: ${name} \n Sender email: ${email} \n Sender message: ${message}`,
-        html: `
-            <h4>Email received from contact form:</h4>
-            <p>Sender name: ${name}</p>
-            <p>Sender email: ${email}</p>
-            <p>Sender message: ${message}</p>
-            <hr />
-            <p><strong>This email was send from your portfolio</strong></p>
-            <p>${process.env.CLIENT_URL}</p>
-        `,
+        text: `You have received a message from ${name} (${email}): ${message}`,
+        html: `<p>You have received a message from <strong>${name}</strong> (${email}): ${message}</p>`
     };
 
-    sgMail.send(emailData).then((sent) => {
-        return res.json({
-            success: true,
-        });
+    // Send mail with defined transport object
+    transporter.sendMail(mailOptions).then(info => {
+        console.log('Email sent:', info.messageId);
+        res.status(200).send({success: true});
+    }).catch(error => {
+        console.log('Error sending email:', error);
+        res.status(500).send('Failed to send email');
     });
 };
